@@ -1,0 +1,5 @@
+
+# setting the working directory and loading csv file
+setwd("C:\\Users\\qosja\\Downloads\\")
+read.csv("recommendations.csv")
+data <- read.csv("recommendations.csv")
