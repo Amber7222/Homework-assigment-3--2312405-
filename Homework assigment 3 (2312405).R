@@ -1,0 +1,10 @@
+# Question 2 
+
+# installing and loading packages 
+library(dplyr)  # for data manipulation
+library(ggplot2)  # for visualization
+library(pROC)  # for ROC curve and AUC calculation
+library(caret)  # for model evaluation
+library(MASS)  # for stepAIC
+
+
