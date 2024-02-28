@@ -1,0 +1,28 @@
+
+# Question 2 
+
+# installing and loading packages 
+library(dplyr)  # for data manipulation
+library(ggplot2)  # for visualization
+library(pROC)  # for ROC curve and AUC calculation
+library(caret)  # for model evaluation
+library(MASS)  # for stepAIC
+
+# setting the working directory and loading csv file
+# the cvs file contains data for ...
+# RecommendationFollowed is the dependent variable and Mode is the primary independent variable. 
+setwd("C:\\Users\\qosja\\Downloads\\") # set the working directory to the location of the csv file on your computer.
+read.csv("recommendations.csv")
+data <- read.csv("recommendations.csv")
+
+# Performed an exploratory data analysis to understand its structure, distribution, and any potential patterns or outliers.
+# the summary shows that the mean of recommendations followed is 0.4542 meaning on average around 45% of participants followed the recommendations
+# for the variables Competent, Intelligent, and Thoughtful have mean values around 5-6, indicating that respondents generally rated the recommend-er moderately to highly in these aspects. 
+summary(data)
+str(data)
+head(data)
+
+# Running ordinal regression to analyze how recommendation modality affects whether or not a recommendation is followed.
+# I chose ordinal regression Since the outcome variable (RecommendationFollowed) is binary (0 or 1), logistic regression is a suitable choice for modeling.
+model <- glm(RecommendationFollowed ~ Mode + Gender + Age + Competent + Intelligent + Thoughtful + CompositeIntellect + Stimulus,
+             data = data, family = binomial)
